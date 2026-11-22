@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://mcp.go2trip.com/assets/go2trip-icon.png" alt="Go2Trip" width="96" height="96">
+  <img src="https://raw.githubusercontent.com/blackrabbit-travel/go2trip-mcp/main/assets/go2trip-icon.png" alt="Go2Trip" width="96" height="96">
 </p>
 
 # Go2Trip — MCP Server
