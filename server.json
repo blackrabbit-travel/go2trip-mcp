@@ -1,0 +1,13 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.go2trip/mcp",
+  "description": "Go2Trip, your travel solution in chat: search flights at live prices and book on go2trip.com.",
+  "version": "1.0.0",
+  "websiteUrl": "https://mcp.go2trip.com",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.go2trip.com/mcp"
+    }
+  ]
+}
