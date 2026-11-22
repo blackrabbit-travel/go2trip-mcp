@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://mcp.go2trip.com/assets/go2trip-icon.png" alt="Go2Trip" width="96" height="96">
+</p>
+
 # Go2Trip — MCP Server
 
 **Go2Trip, your travel solution, inside any MCP client.** Go2Trip is a booking site for
