@@ -14,8 +14,9 @@ want to go in plain words and get live prices back, with a link to book on
 - **Website:** [mcp.go2trip.com](https://mcp.go2trip.com) ·
   [privacy policy](https://mcp.go2trip.com/privacy) · [terms](https://mcp.go2trip.com/terms)
 
-Go2Trip hosts the server. There is nothing to install or build: this repository holds the
-configuration that connects an MCP client to it.
+Go2Trip hosts the server, so for everyday use there is nothing to install. This repository
+also holds a small local (stdio) server for clients that start a process instead of opening a
+URL; see [Run it locally](#run-it-locally).
 
 ## Connect
 
@@ -32,15 +33,28 @@ Clients that support remote servers:
 }
 ```
 
-Clients that only run local (stdio) servers, through the
-[`mcp-remote`](https://www.npmjs.com/package/mcp-remote) bridge:
+## Run it locally
+
+The local server in this repository speaks stdio and forwards every request to the hosted
+Go2Trip server. It holds no travel logic and no secrets, so it always offers exactly the
+tools the hosted server offers.
+
+```bash
+git clone https://github.com/blackrabbit-travel/go2trip-mcp
+cd go2trip-mcp
+npm install
+npm run build
+npm run smoke     # starts the server, runs the MCP handshake and lists its tools
+```
+
+Then point a stdio MCP client at the built entry:
 
 ```json
 {
   "mcpServers": {
     "go2trip": {
-      "command": "npx",
-      "args": ["-y", "mcp-remote", "https://mcp.go2trip.com/mcp"]
+      "command": "node",
+      "args": ["/path/to/go2trip-mcp/dist/index.js"]
     }
   }
 }
@@ -52,6 +66,10 @@ Or with Docker:
 docker build -t go2trip-mcp .
 docker run -i --rm go2trip-mcp
 ```
+
+| Variable | Default | Description |
+|---|---|---|
+| `GO2TRIP_MCP_URL` | `https://mcp.go2trip.com/mcp` | The hosted server to forward to. Leave unset. |
 
 ## Tools
 
@@ -79,5 +97,5 @@ forwarded once to the search engine to fulfil your request and are not retained.
 ## About
 
 Operated by BTL Travel. The hosted service and its search engine are proprietary; the
-**MIT license** in this repository covers the files here (`Dockerfile`, `server.json` and
-the configuration examples).
+**MIT license** in this repository covers the files here: the local server, `Dockerfile`,
+`server.json` and the configuration examples.

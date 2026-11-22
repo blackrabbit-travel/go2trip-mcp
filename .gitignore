@@ -1,2 +1,5 @@
 .DS_Store
 .mcp-auth/
+node_modules/
+dist/
+npm-debug.log*
