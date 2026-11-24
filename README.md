@@ -4,6 +4,8 @@
 
 # Go2Trip — MCP Server
 
+[![Go2Trip MCP connector](https://glama.ai/mcp/connectors/com.go2trip.mcp/go2trip/badges/score.svg)](https://glama.ai/mcp/connectors/com.go2trip.mcp/go2trip)
+
 **Go2Trip, your travel solution, inside any MCP client.** Go2Trip is a booking site for
 flights and hotels. This server brings Go2Trip into the conversation: describe where you
 want to go in plain words and get live prices back, with a link to book on
